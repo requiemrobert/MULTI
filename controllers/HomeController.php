@@ -12,9 +12,9 @@ class HomeController
 	       $data_style = '';
 	    } 
 
-		$data_style = ['css/normalize','css/main_style', 'css/font-awesome'];
+		$data_style = ['css/normalize', 'css/font-awesome', 'bootstrap/css/bootstrap.min'];
 
-		$data_javascript = ['header','jquery-3.2.1'];
+		$data_javascript = ['js/jquery-3.2.1.min','bootstrap/js/bootstrap.min'];
 
 		$data_head = array(
 				'data_style' => $data_style,

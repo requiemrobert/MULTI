@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<!-- Required meta tags -->
 	<meta charset="UTF-8">
-	<meta name="description" content="" />
+	<meta name="description" content="Service" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
 
