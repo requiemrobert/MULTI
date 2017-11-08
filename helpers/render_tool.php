@@ -2,24 +2,26 @@
 
 session_start();
 
-function render_profile(){
+function user_name(){
 	
-	return ucfirst (substr($_SESSION['user_name'], 0 , 1));
-
+	//return ucfirst (substr($_SESSION['user_name'], 0 , 1));
+	return ucfirst($_SESSION['user_name']);
 }
 
 function render_menu(){
 
-	$render =  '<ul class="navcontainer">';	
-	$render .= '<li><a href='.BASE_URL.'><i class="fa fa-home fa-lg" aria-hidden="true"></i>';
-	$render .= '<label>Inicio</label></a></li>';
+	$render =  '<ul class="nav nav-pills flex-column sidebar-nav">';	
+	$render .= '<li class="nav-item"><a class="nav-link active" href='.BASE_URL.'>';
+	$render .= '<em class="fa fa-home fa-lg" aria-hidden="true"></em>';
+	$render .= '<label>Inicio</label>';
+	$render .= '</a></li>';
 
 	if ( !empty($_SESSION['opciones_menu']) ) {
 		
 			foreach ($_SESSION['opciones_menu'] as $key => $value) {
 
-				$render .= "<li><a href='". $key ."'>";
-				$render .= "<i class='fa ". menu_ico($key) ." fa-lg' aria-hidden='true'></i>";
+				$render .= "<li class='nav-item'><a class='nav-link active' href='". $key ."'>";
+				$render .= "<em class='fa ". menu_ico($key) ." fa-lg' aria-hidden='true'></em>";
 				$render .= "<label>". $key ."</label></a></li>";
 
 			}	

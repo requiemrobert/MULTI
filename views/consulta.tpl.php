@@ -1,76 +1,41 @@
 
 <section class="main">
 
-		<h1><?= $titulo ?></h1>
-
-		<div class="content-table">
-
-			<table id="table-consulta-cliente" class="table table-striped table-bordered" cellspacing="0" width="100%">
-		        <thead>
-		            <tr>
-		                <th>Name</th>
-		                <th>Position</th>
-		                <th>Office</th>
-		                <th>Age</th>
-		                <th>Start date</th>
-		                <th>Salary</th>
-		            </tr>
-		        </thead>
-		        <tfoot>
-		            <tr>
-		                <th>Name</th>
-		                <th>Position</th>
-		                <th>Office</th>
-		                <th>Age</th>
-		                <th>Start date</th>
-		                <th>Salary</th>
-		            </tr>
-		        </tfoot>
-		        <tbody>
-		            <tr>
-		                <td>Tiger Nixon</td>
-		                <td>System Architect</td>
-		                <td>Edinburgh</td>
-		                <td>61</td>
-		                <td>2011/04/25</td>
-		                <td>$320,800</td>
-		            </tr>
-		            <tr>
-		                <td>Garrett Winters</td>
-		                <td>Accountant</td>
-		                <td>Tokyo</td>
-		                <td>63</td>
-		                <td>2011/07/25</td>
-		                <td>$170,750</td>
-		            </tr>
-		            <tr>
-		                <td>Ashton Cox</td>
-		                <td>Junior Technical Author</td>
-		                <td>San Francisco</td>
-		                <td>66</td>
-		                <td>2009/01/12</td>
-		                <td>$86,000</td>
-		            </tr>
-		            <tr>
-		                <td>Cedric Kelly</td>
-		                <td>Senior Javascript Developer</td>
-		                <td>Edinburgh</td>
-		                <td>22</td>
-		                <td>2012/03/29</td>
-		                <td>$433,060</td>
-		            </tr>
-		            <tr>
-		                <td>Airi Satou</td>
-		                <td>Accountant</td>
-		                <td>Tokyo</td>
-		                <td>33</td>
-		                <td>2008/11/28</td>
-		                <td>$162,700</td>
-		            </tr>
-		        </tbody>
-		    </table>    
-
+		<div class="card-block">
+				<h3 class="card-title">Pedidos</h3>
+				
+				<div class="dropdown card-title-btn-container">
+					
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#"><em class="fa fa-search mr-1"></em> More info</a>
+					    <a class="dropdown-item" href="#"><em class="fa fa-thumb-tack mr-1"></em> Pin Window</a>
+					    <a class="dropdown-item" href="#"><em class="fa fa-remove mr-1"></em> Close Window</a></div>
+				</div>
+				
+				<h6 class="card-subtitle mb-2 text-muted">Sample Data</h6>
+				
+				<div class="canvas-wrapper">
+					<canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
+				</div>
 		</div>
 
+		<div class="card mb-4">
+			<div class="card-block">
+				<h3 class="card-title">Line Chart</h3>
+				
+				<div class="dropdown card-title-btn-container">
+					<button class="btn btn-sm btn-subtle dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><em class="fa fa-cog"></em></button>
+					
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#"><em class="fa fa-search mr-1"></em> More info</a>
+					    <a class="dropdown-item" href="#"><em class="fa fa-thumb-tack mr-1"></em> Pin Window</a>
+					    <a class="dropdown-item" href="#"><em class="fa fa-remove mr-1"></em> Close Window</a></div>
+				</div>
+				
+				<h6 class="card-subtitle mb-2 text-muted">Sample Data</h6>
+				
+				<div class="canvas-wrapper">
+					<canvas class="main-chart" id="bar-chart" height="200" width="600"></canvas>
+				</div>
+			</div>
+		</div>
 
 </section>
