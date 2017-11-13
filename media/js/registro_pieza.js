@@ -3,16 +3,14 @@ var baseURL = path[0]+ "//" +path[2]+'/'+path[3] + '/' + path[4] + '/';
 
 $(function(){
 
-  console.log(baseURL);
-
-    $("#sub_registrar_cliente").on('click', function(event){
+    $("#registo_pieza").on('click', function(event){
 
       event.preventDefault();
-      var $form = $("#registrar-cliente");
-      
+      var $form = $("#form_registrar_pieza");
+        
       var dataJson = getFormData($form);
 
-      sendRequest("registrar", dataJson);
+      sendRequest("registro_pieza", dataJson);
 
     }); 
 
@@ -21,6 +19,7 @@ $(function(){
 
 function sendRequest(action, dataJson){
 
+    console.log(baseURL + action);
     $login = $.ajax({
                       type: "POST",
                       url: baseURL + action,
@@ -29,16 +28,13 @@ function sendRequest(action, dataJson){
                       dataType: "json"
 
     }); $login.done(function(response) {
-        console.log(response);
+
         mensajeResponse(response);
 
     });
 
     $login.fail(function(response) {
-      console.log(response); 
-      //var title_alerts = "Notificación";
-      //var mensaje = "No se puede atender su solicitud momento, Consulte con el Departamento de Sistema";
-      //alertaResponse( title_alerts, icon_danger, alerClassDanger, mensaje, directionShowCenter,3000 );
+        mensajeResponse(response);
     });
 
     /*
@@ -56,13 +52,12 @@ function mensajeResponse(response){
     switch(response.rc) {
           case 200:
 
-              //window.location.href = baseURL;
+              alert(response.mensaje);
         
               break;
           case -200:
               
-              /*title_alerts = "Notificación";
-              alertaResponse(title_alerts, icon_danger, alerClassDanger, response.mensaje, directionShowCenter,3000);*/
+              alert(response.mensaje)
               break;
           default:
               alert("sin respuesta");

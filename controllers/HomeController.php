@@ -14,19 +14,16 @@ class HomeController
 
 		$data_style = ['css/normalize', 'css/font-awesome', 'bootstrap/css/bootstrap.min', 'css/style'];
 
-		$data_javascript = ['js/jquery-3.2.1.min', 'bootstrap/js/bootstrap.min','js/bootstrap-datepicker','js/chart.min','js/chart-data', 'js/custom'];
+		$data_javascript = ['js/jquery-3.2.1.min','bootstrap/js/popper.min', 'bootstrap/js/bootstrap.min','bootstrap/js/bootstrap-datepicker','bootstrap/js/chart.min','bootstrap/js/chart-data', 'js/custom'];
 
 		$data_head = array(
 				'data_style' => $data_style,
 				'data_javascript' => $data_javascript
 		);
 
-		$sub_menu = resolve_sub_opcion(get_class($this),$_SESSION['opciones_menu']);
-
 		return new View('home', [
 								  'titulo' => 'Home', 
-								  'data_head' => $data_head, 
-								  'opciones_sub_menu' => $sub_menu
+								  'data_head' => $data_head
 							    ]);
 	}
 }

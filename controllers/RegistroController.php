@@ -23,7 +23,7 @@ class RegistroController extends ClientesModel
 				'data_javascript' => $data_javascript
 		);
 
-		$sub_menu = resolve_sub_opcion(get_class($this),$_SESSION['opciones_menu']);
+		$sub_menu = resolve_sub_opcion(get_class($this),$_SESSION['menu_opciones']);
 	
 		return new View('registro', [
 									  'titulo' => 'Registro Cliente', 

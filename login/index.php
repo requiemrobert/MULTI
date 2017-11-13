@@ -24,7 +24,7 @@
 	<div class="login">
 		<h1>Multi911 CA</h1>
 	    <form id="login-form" method="post">
-	    	<input type="text" name="user_name" id="user_name" placeholder="Username" onkeypress="return blokSpace(event,this)" required/>
+	    	<input type="text" name="usuario" id="usuario" placeholder="Username" onkeypress="return blokSpace(event,this)" required/>
 	        <input type="password" name="password" placeholder="Password" onkeypress="return blokSpace(event,this)" required/>
 	        <button type="button" id="ingresar" class="btn btn-primary btn-block btn-large">Ingresar</button>
 	    </form>

@@ -2,27 +2,26 @@
 
 session_start();
 
-function user_name(){
+function usuario(){
 	
 	//return ucfirst (substr($_SESSION['user_name'], 0 , 1));
-	return ucfirst($_SESSION['user_name']);
+	return ucfirst($_SESSION['usuario']);
 }
 
 function render_menu(){
 
 	$render =  '<ul class="nav nav-pills flex-column sidebar-nav">';	
-	$render .= '<li class="nav-item"><a class="nav-link active" href='.BASE_URL.'>';
-	$render .= '<em class="fa fa-home fa-lg" aria-hidden="true"></em>';
-	$render .= '<label>Inicio</label>';
+	$render .= '<li class="nav-item"><a class="nav-link" href='.BASE_URL.'>';
+	$render .= '<em class="fa fa-home fa-me" aria-hidden="true"></em>Inicio';
 	$render .= '</a></li>';
 
-	if ( !empty($_SESSION['opciones_menu']) ) {
+	if ( !empty($_SESSION['menu_opciones']) ) {
 		
-			foreach ($_SESSION['opciones_menu'] as $key => $value) {
+			foreach ($_SESSION['menu_opciones'] as $key => $value) {
 
-				$render .= "<li class='nav-item'><a class='nav-link active' href='". $key ."'>";
-				$render .= "<em class='fa ". menu_ico($key) ." fa-lg' aria-hidden='true'></em>";
-				$render .= "<label>". $key ."</label></a></li>";
+				$render .= "<li class='nav-item'><a class='nav-link' href='". $value->descripcion ."'>";
+				$render .= "<em class='fa ". menu_ico($value->descripcion) ." fa-me' aria-hidden='true'></em>";
+				$render .=  $value->descripcion . "</a></li>";
 
 			}	
 	}
@@ -33,56 +32,29 @@ function render_menu(){
 
 }
 
-function render_sub_menu($data_opciones = []){
-	
-	$render =   '<ul class="sidebar-menu">';	
-		
-	if (!empty($data_opciones) ) {
-	
-		foreach ($data_opciones as $sub_menu ) {
-		
-			$render .=	'<li> <a href='. BASE_URL . $sub_menu .'>';
-			$render .=  "<i class='fa ". menu_ico($sub_menu)." fa-me' aria-hidden='true'></i>";
-			$render .=  "<label> ". $sub_menu ."</label>";
-			$render .=	"</a></li>";
-
-		}
-		
-	}
-
-	$render .=  '</ul>';
-
-	return $render; 	
-}
-
-
 function menu_ico($menu=''){
 
-	switch ($menu) {
-		case 'operaciones':
+	switch (strtolower($menu)) {
+		case 'produccion':
 			 return 'fa-wrench';
 			break;
-		case 'productos':
-			 return 'fa-cart-plus';
+		case 'inventario':
+			 return 'fa-pencil-square-o';
 			break;	
 		
-		case 'clientes':
-			 return 'fa-users';
+		case 'ventas':
+			 return 'fa-line-chart';
 			break;	
-		case 'proveedores':
-			 return 'fa-truck';
-			break;
+		case 'estadisticas':
+			 return 'fa-pie-chart';
+			break;	
 		case 'usuarios':
 			 return 'fa-user-circle-o';
 			break;
 
-		case 'registro':
+		case 'clientes':
 			 return 'fa-address-book-o';
 			break;
-
-		case 'reportes':
-			 return 'fa-bar-chart';
-			break;	
 
 		default:
 			return 'fa-file-o';

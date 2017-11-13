@@ -92,31 +92,32 @@ class loginController
 
 	public function setMenu(){
 
-		$_SESSION['opciones_menu']= $this->getMenu();
+		$_SESSION['menu_opciones'] = (array)$this->getMenu();
 		
 	}
 
 	public function getMenu(){
 
-	  $session_user = ["user_name" => $_SESSION['user_name'],"status" => $_SESSION['status']];
+	  $session_user = [ 'usuario' => $_SESSION['usuario'], "status" => $_SESSION['status']];
 	  				 
-	  $decode_data    = [ 'rc' => 'get_menu', 'data' => $session_user];
-	
-	  $responseJson   =  getWS(json_encode($decode_data), BASE_URL_WS);
-	  $decodeJsonData = json_decode( $responseJson );			  
+	  $decode_data  = [ 'rc' => 'get_menu', 'data' => $session_user];
 
-			if (is_null($decodeJsonData)) {
-				
-				return false;
-			
-			}else if ($decodeJsonData->rc == 200) {
-		    
-		    	return $decodeJsonData->data;
-			
-			}else {
+	  $responseJson  =  getWS(json_encode($decode_data), BASE_URL_WS);
 
-			 	return false;	
-			}
+	  $decodeJsonData = json_decode( $responseJson );
+
+		if (is_null($decodeJsonData)) {
+			
+			return false;
+		
+		}else if ($decodeJsonData->rc == 200) {
+	    
+	    	return (array)$decodeJsonData->data;
+		
+		}else {
+
+		 	return false;	
+		}
 	 		
 	}
 
@@ -124,7 +125,6 @@ class loginController
 
 $login = new loginController();
 $login->getLogin();
-
 
 
 

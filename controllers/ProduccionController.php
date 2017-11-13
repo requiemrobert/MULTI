@@ -3,7 +3,7 @@ require 'model/ClientesModel.php';
 require 'helpers/resolve_opcion.php';
 
 
-class ClientesController extends ClientesModel
+class ProduccionController extends ClientesModel
 {
 	public function indexAction()
 	{	
@@ -24,12 +24,9 @@ class ClientesController extends ClientesModel
 				'data_javascript' => $data_javascript
 		);
 
-		$sub_menu = resolve_sub_opcion(get_class($this),$_SESSION['opciones_menu']);
-
-		return new View('clientes', [
-									  'titulo' => 'Clientes', 
-									  'data_head' => $data_head, 
-									  'opciones_sub_menu' => $sub_menu
+		return new View('produccion', [
+									  'titulo' => 'Produccion', 
+									  'data_head' => $data_head
 									]);
 	}
 

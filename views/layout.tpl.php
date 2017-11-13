@@ -10,7 +10,6 @@
 
 	<?php
 		  loadCss($data_head);
-		  loadScript($data_head);
 	?>
 
 	<title><?= $titulo ?></title>
@@ -26,100 +25,61 @@
 
 		    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
 
-	  		<?= render_menu();?>
-	  		<a href="<?= BASE_URL ?>logout" class="logout-button"><em class="fa fa-power-off"></em> Salir </a>
+	  				<?= render_menu();?>
+	  				
+	  		<div class="center-logout">
+	  			<a href="<?= BASE_URL ?>logout" class="logout-button"><em class="fa fa-power-off"></em> Salir </a>
+	  		</div>
 		</nav> 
 		
-		<main class="col-xs-12 col-sm-8 offset-sm-4 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2 pt-3 pl-4">
+		<main class="col-xs-12 col-sm-8 offset-sm-4 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2">
 			<header class="page-header row justify-center">
 					
 					<div class="col-md-6 col-lg-8" >
 						<h1 class="float-left text-center text-md-left"><?= $titulo ?></h1>
 					</div>
 
-					<div class="dropdown user-dropdown col-md-6 col-lg-4 text-center text-md-right">
-						<a class="btn btn-stripped dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<!-- <img src="media/images/profile_photo/profile-pic.jpg" alt="profile photo" class="circle float-left profile-photo" width="50" height="auto"> -->
-							<div class="circle float-left profile-photo"><i class="fa fa-user-o" aria-hidden="true"></i></div>
-							
-							
-							<div class="username mt-1">
-								<h4 class="mb-1"><?= user_name() ?></h4>
+					<div class="dropdown user-dropdown">
+						<a class="btn-stripped dropdown-toggle image-profile" href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+							<div class="ico-profile">
+							 		<span><i class="fa fa-user-o fa-5" aria-hidden="true"></i></span>	
+							</div>
+
+							<div class="username">
+								<h4 class="mb-1"><?= usuario() ?></h4>
 								
 								<h6 class="text-muted">Super Admin</h6>
 							</div>
 						</a>
 						
-						<div class="dropdown-menu dropdown-menu-right" style="margin-right: 1.5rem;" aria-labelledby="dropdownMenuLink">
-							<a class="dropdown-item" href="#"><em class="fa fa-user-circle mr-1"></em> View Profile</a>
-						    <a class="dropdown-item" href="#"><em class="fa fa-sliders mr-1"></em> Preferences</a>
-						    <a class="dropdown-item" href="#"><em class="fa fa-power-off mr-1"></em> Logout</a>
-						</div>
+						<div class="dropdown-menu dropdown-menu-right" style="margin-right: 1.5rem;" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="#"><em class="fa fa-user-circle mr-1"></em> View Profile</a>
+						     <a class="dropdown-item" href="#"><em class="fa fa-sliders mr-1"></em> Preferences</a>
+						     <a class="dropdown-item" href="<?= BASE_URL ?>logout"><em class="fa fa-power-off mr-1"></em> Logout</a></div>
 					</div>
 
 					<div class="clear"></div>
 						
-				</header>
+			</header>
 
-						<section class="row">
-							<div class="container">
+						<section class="container">
+						
+							<?= $tpl_content; ?>
 
-								<?= $tpl_content; ?>
-
-							</div>
 					    </section>
 			
-			</div>
+		
 		</main>
-	<?= render_footer() ?>
 
+		<?= render_footer() ?>
+
+	</div>
 </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
+<?=loadScript($data_head);?>
 
-    window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-	var chart2 = document.getElementById("bar-chart").getContext("2d");
-	window.myBar = new Chart(chart2).Bar(barChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-	var chart3 = document.getElementById("doughnut-chart").getContext("2d");
-	window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
-	responsive: true,
-	segmentShowStroke: false
-	});
-	var chart4 = document.getElementById("pie-chart").getContext("2d");
-	window.myPie = new Chart(chart4).Pie(pieData, {
-	responsive: true,
-	segmentShowStroke: false
-	});
-	var chart5 = document.getElementById("radar-chart").getContext("2d");
-	window.myRadarChart = new Chart(chart5).Radar(radarData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.05)",
-	angleLineColor: "rgba(0,0,0,.2)"
-	});
-	var chart6 = document.getElementById("polar-area-chart").getContext("2d");
-	window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	segmentShowStroke: false
-	});
-};
-
-</script>
-
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script> -->
 
 </body>
 </html>
