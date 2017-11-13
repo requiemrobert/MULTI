@@ -2,7 +2,7 @@ var path = window.location.href.split( '/' );
 var baseURL = path[0]+ "//" +path[2]+'/'+path[3] + '/' + path[4] + '/';
 
 $(function(){
-
+    
     $("#registo_pieza").on('click', function(event){
 
       event.preventDefault();
@@ -14,12 +14,18 @@ $(function(){
 
     }); 
 
+    $('#fec_produccion').datepicker({
+                                     format: 'yyyy/mm/dd',
+                                     todayHighlight: true,
+                                     autoclose: true,
+                                    });
 
 });//end main function
 
 function sendRequest(action, dataJson){
 
     console.log(baseURL + action);
+
     $login = $.ajax({
                       type: "POST",
                       url: baseURL + action,
@@ -30,20 +36,21 @@ function sendRequest(action, dataJson){
     }); $login.done(function(response) {
 
         mensajeResponse(response);
-
+        //$("#form_registrar_pieza")[0].reset();
     });
 
     $login.fail(function(response) {
         mensajeResponse(response);
+        console.error("hubo un inconveniente");
     });
 
-    /*
+    
     
     $login.always(function(data) {
+       console.info("consulta realizada"); 
        console.log(data);
-    });
 
-    */
+    });
 
 }
 

@@ -53,33 +53,27 @@
 							</div>
 						</a>
 						
-						<div class="dropdown-menu dropdown-menu-right" style="margin-right: 1.5rem;" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="#"><em class="fa fa-user-circle mr-1"></em> View Profile</a>
-						     <a class="dropdown-item" href="#"><em class="fa fa-sliders mr-1"></em> Preferences</a>
-						     <a class="dropdown-item" href="<?= BASE_URL ?>logout"><em class="fa fa-power-off mr-1"></em> Logout</a></div>
+						<div class="dropdown-menu dropdown-menu-right" style="margin-right: 1.5rem;" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="#"><em class="fa fa-user-circle mr-1"></em> Ver Perfil</a>
+						     <a class="dropdown-item" href="#"><em class="fa fa-sliders mr-1"></em> Preferencias</a>
+						     <a class="dropdown-item" href="<?= BASE_URL ?>logout"><em class="fa fa-power-off mr-1"></em> Salir</a></div>
 					</div>
 
 					<div class="clear"></div>
 						
 			</header>
 
-						<section class="container">
+					<section class="container">
 						
-							<?= $tpl_content; ?>
+						<?= $tpl_content; ?>
 
-					    </section>
+					</section>
 			
-		
 		</main>
-
-		<?= render_footer() ?>
 
 	</div>
 </div>
 
-<?=loadScript($data_head);?>
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script> -->
+	<?= loadScript($data_head); ?>
 
 </body>
 </html>

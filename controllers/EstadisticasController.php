@@ -15,12 +15,12 @@ class EstadisticasController
 		$data_style = ['css/normalize', 'css/font-awesome', 'bootstrap/css/bootstrap.min', 'css/style', 'css/consulta', 'data_table/css/jquery-ui', 'data_table/datatables.min'];
 
 		$data_javascript = [
-							'js/jquery-3.2.1.min', 
+							'graficos/jquery-graficos', 
 							'bootstrap/js/popper.min',
 							'bootstrap/js/bootstrap.min',
 							'graficos/chart.min', 
-							'graficos/chart-data',
-							'js/reportes_graficos'];
+							'graficos/Chart.bundle.min',
+							'js/estadisticas'];
 
 		$data_head = array(
 
@@ -29,13 +29,15 @@ class EstadisticasController
 		);
 
 		return new View('estadisticas',[
-										  'titulo' => 'Reportes', 
+										  'titulo' => 'Estadísticas', 
 										  'data_head' => $data_head
 									  ]);
 	}
 	
-	public function ciudadAction($ciudad)
-	{
-		exit('contactos ' . $ciudad);
+	public function consultar_piezasAction()
+	{	
+		$strJson = json_encode([ 'rc' => 'consultar_piezas']);
+
+		return getWS( $strJson , BASE_URL_WS );//Call WS return JSON
 	}
 }

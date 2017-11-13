@@ -618,3 +618,15 @@ input[type=checkbox]:checked + label {
   margin-top: 2rem; }
   .todo-list-footer .btn {
     border-radius: .4rem; }
+
+ .content-register{
+
+    margin-top: 2em;
+
+ }
+
+ .item-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }

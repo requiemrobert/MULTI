@@ -63,31 +63,6 @@ function menu_ico($menu=''){
 
 }
 
-function render_footer(){
-
-	$footer  = '<footer>';
-	$footer .= '<section class="social-media">';
-	$footer .= '<ul>';
-	$footer .= '	<li><a href="#" class=""><i class="fa fa-facebook fa-lg hi-icon" aria-hidden="true"></i></a></li>';
-	$footer .= '	<li><a href="#" class=""><i class="fa fa-twitter fa-lg hi-icon" aria-hidden="true"></i></a></li>';
-	$footer .= '	<li><a href="#" class=""><i class="fa fa-google-plus fa-lg hi-icon" aria-hidden="true"></i></a></li>';
-	$footer .= '</ul>';
-	$footer .= '</section>';
-	$footer .= '<section class="policy">';
-	$footer .= '<ul>';
-	$footer .= '<li><a href="#">Política de Privacidad</a></li>';
-	$footer .= '<li><a href="#">Información Legal</a></li>';
-	$footer .= '<li><a href="#">Términos y Condiciones</a></li>';
-	$footer .= '</ul>';
-	$footer .= '</section>';
-	$footer .= '<section class="Copyright">';
-	$footer .= '<p>© Copyright, Ona</p>';
-	$footer .= '</section>';
-	$footer .= '</footer>';
-
-	return $footer; 	
-
-}
 
 
 
