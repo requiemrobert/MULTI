@@ -44,8 +44,6 @@ function sendRequest(action, dataJson){
         console.error("hubo un inconveniente");
     });
 
-    
-    
     $login.always(function(data) {
        console.info("consulta realizada"); 
        console.log(data);
