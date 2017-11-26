@@ -21,11 +21,11 @@
 	  	<div class="form-group row">
 	  		<label for="nombre_pieza" class="col-2 col-form-label">Teléfono Contacto</label>
 		  	<div class="input-group col-sm-3">
-		    	<input class="form-control" type="text" id="telf" name="telf">
+		    	<input class="form-control" type="text" id="telf" name="telf" onpaste="return alpha(event)" onkeypress="return number(event)" maxlength="10">
 		  	</div>
 
 		  	<div class="input-group col-sm-3">
-		    	<input class="form-control" type="text" id="otro_telf" name="otro_telf" placeholder="Otro Teléfono">
+		    	<input class="form-control" type="text" id="otro_telf" name="otro_telf" placeholder="Otro Teléfono" onpaste="return alpha(event)" onkeypress="return number(event)" maxlength="10">
 		  	</div>
 		</div>	
 

@@ -2,7 +2,6 @@
 require 'model/ClientesModel.php';
 require 'helpers/resolve_opcion.php';
 
-
 class Registrar_PedidosController extends ClientesModel
 {
 	public function indexAction()

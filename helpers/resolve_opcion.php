@@ -26,6 +26,6 @@ function resolve_sub_opcion($className, $opciones_menu =[])
 		}
 
 	}
-
+	
 	return $sub_menu;
 }

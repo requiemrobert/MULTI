@@ -15,16 +15,17 @@ function render_menu(){
 	$render .= '<em class="fa fa-home fa-me" aria-hidden="true"></em>Inicio';
 	$render .= '</a></li>';
 
-	if ( !empty($_SESSION['menu_opciones']) ) {
-		
-			foreach ($_SESSION['menu_opciones'] as $key => $value) {
+	$render .= "<li class='nav-item'>";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Registrar_Cliente'>";
+	$render .= "<em class='fa ". menu_ico("registrar_cliente") ." fa-me' aria-hidden='true'></em>Registrar Cliente";
+	$render .= "</a></li>";
 
-				$render .= "<li class='nav-item'><a class='nav-link' href='". $value->descripcion ."'>";
-				$render .= "<em class='fa ". menu_ico($value->descripcion) ." fa-me' aria-hidden='true'></em>";
-				$render .=  $value->descripcion . "</a></li>";
+	$render .= "<li class='nav-item'>";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Consultar_Clientes'>";
+	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Consultar Clientes";
+	$render .= "</a></li>";
 
-			}	
-	}
+
 
 	$render .= '</ul>';
 
