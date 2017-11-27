@@ -3,7 +3,7 @@ var baseURL = path[0]+ "//" +path[2]+'/'+path[3] + '/' + path[4] + '/';
 
 $(function(){
 	
-	dataPiezasProducidas(baseURL + "consultar_piezas");
+	dataPiezasProducidas();
 
 });
 
@@ -69,88 +69,91 @@ function renderGraficas(data){
 
 	for (var i = 0; i < data.length; i++) {
 
-		if (getMes(data[i].fec_produccion) == 'Septiembre' && data[i].tipo_pieza == "Retrovisor" ) {
+		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Retrovisor" ) {
 
 			SeptiembreRetrovisor = data[i].cantidad;
 
+			console.log(getMes(data[i].mes_pedido));
+
 		}
 			
-		if (getMes(data[i].fec_produccion) == 'Octubre' && data[i].tipo_pieza == "Retrovisor" ) {
+		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Retrovisor" ) {
 
 			OctubreRetrovisor = data[i].cantidad;
+			console.log(getMes(data[i].mes_pedido) );
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Noviembre' && data[i].tipo_pieza == "Retrovisor" ) {
+		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Retrovisor" ) {
 
 			NoviembreRetrovisor = data[i].cantidad;
-
+			console.log(getMes(data[i].mes_pedido) );
 		}
-		if (getMes(data[i].fec_produccion) == 'Diciembre' && data[i].tipo_pieza == "Retrovisor" ) {
+		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Retrovisor" ) {
 
 			DiciembreRetrovisor = data[i].cantidad;
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Septiembre' && data[i].tipo_pieza == "Parachoques" ) {
+		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Parachoques" ) {
 
 			SeptiembreParachoque = data[i].cantidad;
 
 		}
 			
-		if (getMes(data[i].fec_produccion) == 'Octubre' && data[i].tipo_pieza == "Parachoques" ) {
+		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Parachoques" ) {
 
 			OctubreParachoque = data[i].cantidad;
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Noviembre' && data[i].tipo_pieza == "Parachoques" ) {
+		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Parachoques" ) {
 
 			NoviembreParachoque = data[i].cantidad;
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Diciembre' && data[i].tipo_pieza == "Parachoques" ) {
+		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Parachoques" ) {
 
 			DiciembreParachoque = data[i].cantidad;
 
 		}
 
-		if (getMes(data[i].fec_produccion) == 'Septiembre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Capo" ) {
 
 			SeptiembreCapo = data[i].cantidad;
 
 		}
 			
-		if (getMes(data[i].fec_produccion) == 'Octubre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Capo" ) {
 
 			OctubreCapo = data[i].cantidad;
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Noviembre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Capo" ) {
 
 			NoviembreCapo = data[i].cantidad;
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Diciembre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Capo" ) {
 
 			DiciembreCapo = data[i].cantidad;
 
 		}
 
-		if (getMes(data[i].fec_produccion) == 'Septiembre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Capo" ) {
 
 			SeptiembreTecho = data[i].cantidad;
 
 		}
 			
-		if (getMes(data[i].fec_produccion) == 'Octubre' && data[i].tipo_pieza == "Techo" ) {
+		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Techo" ) {
 
 			OctubreTecho = data[i].cantidad;
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Noviembre' && data[i].tipo_pieza == "Techo" ) {
+		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Techo" ) {
 
 			NoviembreTecho = data[i].cantidad;
 
 		}
-		if (getMes(data[i].fec_produccion) == 'Diciembre' && data[i].tipo_pieza == "Techo" ) {
+		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Techo" ) {
 
 			DiciembreTecho = data[i].cantidad;
 
@@ -205,11 +208,9 @@ function renderGraficas(data){
 
 function dataPiezasProducidas(baseURL_Action){
 
-				console.log(baseURL_Action);
-
 					$login = $.ajax({
     				  type: "GET",
-                      url: baseURL_Action,
+                      url: "http://localhost/MULTI/Indicadores_Estadisticos/indicadores_piezas_mes",
                       contentType: "application/json; charset=utf-8",
                       dataType: "json"
 
@@ -219,16 +220,51 @@ function dataPiezasProducidas(baseURL_Action){
 
 				    	renderGraficas(response.data);	
 			
-
 				    });
 
 				    $login.fail(function(response) {
-				        console.log(response);
+				       
 				    });
 
 }//END dataPiezasProducidas
 
+/****** PIE ******/
 
+var pieTotal = document.getElementById("chart-total-pedidos");
+
+Chart.defaults.global.defaultFontFamily = "Lato";
+Chart.defaults.global.defaultFontSize = 18;
+
+var pieData = {
+    labels: [
+        "Techo",
+        "Parachoque",
+        "Capo",
+        "Retrovisor"
+    ],
+    datasets: [
+        {
+            data: [2, 1, 4, 6],
+            backgroundColor: [
+                "#FF6384",
+                "#63FF84",
+                "#84FF63",
+                "#8463FF"
+            ]
+        }]
+};
+
+var pieChart = new Chart(pieTotal, {
+  type: 'pie',
+  data: pieData
+});
+
+
+/******/
+
+
+
+/************** COLORES ****************/
 window.chartColors = {
 	red: 'rgb(255, 99, 132)',
 	orange: 'rgb(255, 159, 64)',
@@ -238,3 +274,4 @@ window.chartColors = {
 	purple: 'rgb(153, 102, 255)',
 	grey: 'rgb(201, 203, 207)'
 };
+

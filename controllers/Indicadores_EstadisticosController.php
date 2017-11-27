@@ -42,9 +42,9 @@ class Indicadores_EstadisticosController
 									  ]);
 	}
 	
-	public function consultar_piezasAction()
+	public function indicadores_piezas_mesAction()
 	{	
-		$strJson = json_encode([ 'rc' => 'consultar_piezas']);
+		$strJson = json_encode([ 'rc' => 'indicadores_piezas_mes']);
 
 		return getWS( $strJson , BASE_URL_WS );//Call WS return JSON
 	}
