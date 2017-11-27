@@ -3,62 +3,9 @@ var baseURL = path[0]+ "//" +path[2]+'/'+path[3] + '/' + path[4] + '/';
 
 $(function(){
 	
-	var table = $('#table-pedidos').DataTable({
-	 	"scrollY":        "600px",
-        "scrollCollapse": true,
-        "ajax": "http://localhost/MULTI/Pedidos/consultar_pedidos",
-        "columns": [
-            { "data": "Numero_Pedido" },
-            { "data": "Nombre_Cliente" },
-            { "data": "Codigo_Cliente" },
-            { "data": "Tipo_Pieza" },
-            { "data": "Codigo_Pieza" },
-            { "data": "Marca_Fabricante" },
-            { "data": "Descripcion" },
-            { "data": "Fecha_Pedido" },
-            { "data": "Estatus" },
-			  { "render": function () {
-						  var btn_edit = '<button type="button" class="registrar" data-toggle="modal" data-target="#modificar"><span class="fa fa-wrench"></span></button>';
-    					  return '<div class="cont-btn-table">'+btn_edit+'</div>';
-						   }
-				},
-        ],
-		        "language": {
-	            "lengthMenu": "Mostrar _MENU_ registro por página",
-	            "zeroRecords": "No se encontraron resultados",
-	            "info": "Mostrando del _PAGE_ de _PAGES_",
-	            "infoEmpty": "Ningún dato disponible en esta tabla",
-	            "infoFiltered": "(filtrado desde _MAX_ total records)",
-	           	"sSearch": "Buscar:",
-			    	"sUrl": "",
-			    	"sInfoThousands": ",",
-			    	"sLoadingRecords": "Por favor espere - cargando...",
-			   		"oPaginate": {
-			        			   "sFirst":    "Primero",
-			        			   "sLast":     "Último",
-			        			   "sNext":     "Siguiente",
-			        			   "sPrevious": "Anterior"
-			   		  }
-	          }
-
-	 });//END DATA TABLE
-
-	 table.on( 'click', '.registrar', function () {
-
-	 	  var row = $(this).parent().parent().parent();
-    	var table = $('#table-pedidos').DataTable();
-    	var field = table.row( row ).data();
-
-      $("#numero_pedido").val(field.Numero_Pedido);
-  	 	$("#nombre_cliente").val(field.Nombre_Cliente);
-  	 	$("#cod_cliente_fk").val(field.Codigo_Cliente);
-  	 	$("#tipo_pieza").val(field.Tipo_Pieza);
-  	 	$("#marca_fabricante").val(field.Marca_Fabricante);
-      $("#codigo_pieza").val(field.Codigo_Pieza);
-
-	 });
-
-	 $("#actualizar_estatus").on('click', function(){
+  fetch_data();
+	 
+	$("#actualizar_estatus").on('click', function(){
 
 	 	    event.preventDefault();
         
@@ -78,7 +25,7 @@ $(function(){
 
       	}
 
-	 });
+	});
 
 });///END MAIN
 
@@ -97,8 +44,10 @@ function actualizarEstatus(dataJson){
     $login.done(function(response) {
 
        mensajeResponse(response);
-       //$('form')[0].reset();
-        
+       $('#table-pedidos').DataTable().destroy();
+       fetch_data(); 
+       $( ".btn-secondary" ).trigger( "click" );
+
     });
 
     $login.fail(function(response) {
@@ -127,5 +76,64 @@ function mensajeResponse(response){
           default:
               alert("sin respuesta");
     }
+
+}
+
+function fetch_data(){
+
+  var table = $('#table-pedidos').DataTable({
+    "scrollY":        "600px",
+        "scrollCollapse": true,
+        "ajax": "http://localhost/MULTI/Pedidos/consultar_pedidos",
+        "columns": [
+            { "data": "Numero_Orden" },
+            { "data": "Nombre_Cliente" },
+            { "data": "Codigo_Cliente" },
+            { "data": "Tipo_Pieza" },
+            { "data": "Codigo_Pieza" },
+            { "data": "Marca_Fabricante" },
+            { "data": "Descripcion" },
+            { "data": "Fecha_Pedido" },
+            { "data": "Estatus" },
+        { "render": function () {
+              var btn_edit = '<button type="button" class="registrar" data-toggle="modal" data-target="#modificar"><span class="fa fa-wrench"></span></button>';
+                return '<div class="cont-btn-table">'+btn_edit+'</div>';
+               }
+        },
+        ],
+            "language": {
+              "lengthMenu": "Mostrar _MENU_ registro por página",
+              "zeroRecords": "No se encontraron resultados",
+              "info": "Mostrando del _PAGE_ de _PAGES_",
+              "infoEmpty": "Ningún dato disponible en esta tabla",
+              "infoFiltered": "(filtrado desde _MAX_ total records)",
+              "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Por favor espere - cargando...",
+            "oPaginate": {
+                       "sFirst":    "Primero",
+                       "sLast":     "Último",
+                       "sNext":     "Siguiente",
+                       "sPrevious": "Anterior"
+              }
+            }
+
+   });//END DATA TABLE
+
+   table.on( 'click', '.registrar', function () {
+
+      var row = $(this).parent().parent().parent();
+      var table = $('#table-pedidos').DataTable();
+      var field = table.row( row ).data();
+
+      $("#numero_orden").val(field.Numero_Orden);
+      $("#nombre_cliente").val(field.Nombre_Cliente);
+      $("#cod_cliente_fk").val(field.Codigo_Cliente);
+      $("#tipo_pieza").val(field.Tipo_Pieza);
+      $("#marca_fabricante").val(field.Marca_Fabricante);
+      $("#codigo_pieza").val(field.Codigo_Pieza);
+
+   });
 
 }

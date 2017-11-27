@@ -8,7 +8,7 @@ $(function(){
         "scrollCollapse": true,
         "ajax": "http://localhost/MULTI/Pedidos/consultar_pedidos",
         "columns": [
-            { "data": "Numero_Pedido" },
+            { "data": "Numero_Orden" },
             { "data": "Nombre_Cliente" },
             { "data": "Codigo_Cliente" },
             { "data": "Tipo_Pieza" },

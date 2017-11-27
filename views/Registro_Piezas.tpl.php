@@ -3,7 +3,7 @@
 			<table id="table-pedidos" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		        <thead>
 		            <tr>
-		            	<th>Numero_Pedido</th>
+		            	<th>Numero_Orden</th>
 		                <th>Nombre_Cliente</th>
 		                <th>Codigo_Cliente</th>
 		                <th>Tipo_Pieza</th>
