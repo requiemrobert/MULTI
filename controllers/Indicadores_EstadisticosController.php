@@ -27,8 +27,8 @@ class Indicadores_EstadisticosController
 							'bootstrap/js/bootstrap.min',
 							'graficos/chart.min', 
 							'graficos/Chart.bundle.min',
-							'js/estadisticas',
-							'js/Indicadores_Estadisticos'];
+							'js/Indicadores_Estadisticos',
+							'js/Indicadores_pie'];
 
 		$data_head = array(
 
@@ -45,6 +45,13 @@ class Indicadores_EstadisticosController
 	public function indicadores_piezas_mesAction()
 	{	
 		$strJson = json_encode([ 'rc' => 'indicadores_piezas_mes']);
+
+		return getWS( $strJson , BASE_URL_WS );//Call WS return JSON
+	}
+
+	public function total_pedidos_piezasAction()
+	{	
+		$strJson = json_encode([ 'rc' => 'total_pedidos_piezas']);
 
 		return getWS( $strJson , BASE_URL_WS );//Call WS return JSON
 	}

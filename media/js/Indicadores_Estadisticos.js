@@ -13,7 +13,7 @@ function getMes(fecha){
     return mes[dt.getMonth()]; 
 };
 
-function renderGraficas(data){
+function renderGraficas(dataResponse){
 
 	var EneroRetrovisor	  = 0;
 	var FebreroRetrovisor = 0;
@@ -67,100 +67,100 @@ function renderGraficas(data){
 	var NoviembreTecho  = 0;
 	var DiciembreTecho  = 0;
 
-	for (var i = 0; i < data.length; i++) {
+	for (var i = 0; i < dataResponse.length; i++) {
 
-		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Retrovisor" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Retrovisor" ) {
 
-			SeptiembreRetrovisor = data[i].cantidad;
-
-			console.log(getMes(data[i].mes_pedido));
+			SeptiembreRetrovisor = dataResponse[i].cantidad;
 
 		}
 			
-		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Retrovisor" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Octubre' && dataResponse[i].tipo_pieza == "Retrovisor" ) {
 
-			OctubreRetrovisor = data[i].cantidad;
-			console.log(getMes(data[i].mes_pedido) );
-
-		}
-		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Retrovisor" ) {
-
-			NoviembreRetrovisor = data[i].cantidad;
-			console.log(getMes(data[i].mes_pedido) );
-		}
-		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Retrovisor" ) {
-
-			DiciembreRetrovisor = data[i].cantidad;
-
-		}
-		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Parachoques" ) {
-
-			SeptiembreParachoque = data[i].cantidad;
-
-		}
-			
-		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Parachoques" ) {
-
-			OctubreParachoque = data[i].cantidad;
-
-		}
-		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Parachoques" ) {
-
-			NoviembreParachoque = data[i].cantidad;
-
-		}
-		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Parachoques" ) {
-
-			DiciembreParachoque = data[i].cantidad;
+			OctubreRetrovisor = dataResponse[i].cantidad;
 
 		}
 
-		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Noviembre' && dataResponse[i].tipo_pieza == "Retrovisor" ) {
 
-			SeptiembreCapo = data[i].cantidad;
+			NoviembreRetrovisor = dataResponse[i].cantidad;
+		}
+
+		if (getMes(dataResponse[i].mes_pedido) == 'Diciembre' && dataResponse[i].tipo_pieza == "Retrovisor" ) {
+
+			DiciembreRetrovisor = dataResponse[i].cantidad;
+
+		}
+		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Parachoques" ) {
+
+			SeptiembreParachoque = dataResponse[i].cantidad;
 
 		}
 			
-		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Octubre' && dataResponse[i].tipo_pieza == "Parachoques" ) {
 
-			OctubreCapo = data[i].cantidad;
-
-		}
-		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Capo" ) {
-
-			NoviembreCapo = data[i].cantidad;
+			OctubreParachoque = dataResponse[i].cantidad;
 
 		}
-		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Noviembre' && dataResponse[i].tipo_pieza == "Parachoques" ) {
 
-			DiciembreCapo = data[i].cantidad;
+			NoviembreParachoque = dataResponse[i].cantidad;
+
+		}
+		if (getMes(dataResponse[i].mes_pedido) == 'Diciembre' && dataResponse[i].tipo_pieza == "Parachoques" ) {
+
+			DiciembreParachoque = dataResponse[i].cantidad;
 
 		}
 
-		if (getMes(data[i].mes_pedido) == 'Septiembre' && data[i].tipo_pieza == "Capo" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Capo" ) {
 
-			SeptiembreTecho = data[i].cantidad;
+			SeptiembreCapo = dataResponse[i].cantidad;
 
 		}
 			
-		if (getMes(data[i].mes_pedido) == 'Octubre' && data[i].tipo_pieza == "Techo" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Octubre' && dataResponse[i].tipo_pieza == "Capo" ) {
 
-			OctubreTecho = data[i].cantidad;
-
-		}
-		if (getMes(data[i].mes_pedido) == 'Noviembre' && data[i].tipo_pieza == "Techo" ) {
-
-			NoviembreTecho = data[i].cantidad;
+			OctubreCapo = dataResponse[i].cantidad;
 
 		}
-		if (getMes(data[i].mes_pedido) == 'Diciembre' && data[i].tipo_pieza == "Techo" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Noviembre' && dataResponse[i].tipo_pieza == "Capo" ) {
 
-			DiciembreTecho = data[i].cantidad;
+			NoviembreCapo = dataResponse[i].cantidad;
+
+		}
+		if (getMes(dataResponse[i].mes_pedido) == 'Diciembre' && dataResponse[i].tipo_pieza == "Capo" ) {
+
+			DiciembreCapo = dataResponse[i].cantidad;
+
+		}
+
+		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Capo" ) {
+
+			SeptiembreTecho = dataResponse[i].cantidad;
+
+		}
+			
+		if (getMes(dataResponse[i].mes_pedido) == 'Octubre' && dataResponse[i].tipo_pieza == "Techo" ) {
+
+			OctubreTecho = dataResponse[i].cantidad;
+
+		}
+		if (getMes(dataResponse[i].mes_pedido) == 'Noviembre' && dataResponse[i].tipo_pieza == "Techo" ) {
+
+			NoviembreTecho = dataResponse[i].cantidad;
+
+		}
+		if (getMes(dataResponse[i].mes_pedido) == 'Diciembre' && dataResponse[i].tipo_pieza == "Techo" ) {
+
+			DiciembreTecho = dataResponse[i].cantidad;
 
 		}	
 
 			
 	}
+
+	datasetsRetrovisor(dataResponse);
 
 	var DataPiezasSemanal = {
 
@@ -206,6 +206,23 @@ function renderGraficas(data){
 
 }
 
+function datasetsRetrovisor(dataJson){
+   var arrayCantidad = [];	
+   var arrayMes = [];	
+   //getMes(fecha)
+   for (var i in dataJson) {
+      
+      if (dataJson[i].tipo_pieza == "Retrovisor") {
+      	  arrayCantidad.push(dataJson[i].cantidad);
+      	  arrayMes.push(getMes(dataJson[i].mes_pedido));
+      }	
+   }
+
+   console.log(arrayMes);
+
+   return arrayCantidad;
+}
+
 function dataPiezasProducidas(baseURL_Action){
 
 					$login = $.ajax({
@@ -228,41 +245,16 @@ function dataPiezasProducidas(baseURL_Action){
 
 }//END dataPiezasProducidas
 
-/****** PIE ******/
+function datasetsChartBar(dataResponse){
 
-var pieTotal = document.getElementById("chart-total-pedidos");
+   var arrayDatasets = [];	
 
-Chart.defaults.global.defaultFontFamily = "Lato";
-Chart.defaults.global.defaultFontSize = 18;
+   for (var i in dataResponse) {
+      arrayDatasets.push(dataResponse[i].cantidad);
+   }
+   return arrayDatasets
 
-var pieData = {
-    labels: [
-        "Techo",
-        "Parachoque",
-        "Capo",
-        "Retrovisor"
-    ],
-    datasets: [
-        {
-            data: [2, 1, 4, 6],
-            backgroundColor: [
-                "#FF6384",
-                "#63FF84",
-                "#84FF63",
-                "#8463FF"
-            ]
-        }]
-};
-
-var pieChart = new Chart(pieTotal, {
-  type: 'pie',
-  data: pieData
-});
-
-
-/******/
-
-
+}
 
 /************** COLORES ****************/
 window.chartColors = {
