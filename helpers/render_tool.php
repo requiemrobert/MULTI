@@ -27,27 +27,27 @@ function render_menu(){
 
 	$render .= "<li class='nav-item'>";
 	$render .= "<a class='nav-link' href='". BASE_URL ."Registrar_Pedidos'>";
-	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Registrar Pedidos";
+	$render .= "<em class='fa ". menu_ico("registrar_pedidos") ." fa-me' aria-hidden='true'></em>Registrar Pedidos";
 	$render .= "</a></li>";
 
 	$render .= "<li class='nav-item'>";
 	$render .= "<a class='nav-link' href='". BASE_URL ."Pedidos'>";
-	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Pedidos";
+	$render .= "<em class='fa ". menu_ico("consultar_pedidos") ." fa-me' aria-hidden='true'></em>Consultar Pedidos";
 	$render .= "</a></li>";
 
 	$render .= "<li class='nav-item'>";
 	$render .= "<a class='nav-link' href='". BASE_URL ."Registro_Piezas'>";
-	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Registro Piezas";
+	$render .= "<em class='fa ". menu_ico("registro_piezas") ." fa-me' aria-hidden='true'></em>Registro Piezas";
 	$render .= "</a></li>";
 
 	$render .= "<li class='nav-item'>";
 	$render .= "<a class='nav-link' href='". BASE_URL ."Piezas'>";
-	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Pedidos Atendidos";
+	$render .= "<em class='fa ". menu_ico("pedidos_atendidos") ." fa-me' aria-hidden='true'></em>Pedidos Atendidos";
 	$render .= "</a></li>";
 
 	$render .= "<li class='nav-item'>";
-	$render .= "<a class='nav-link' href='". BASE_URL ."Piezas'>";
-	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Reportes Indicadores";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Indicadores_Estadisticos'>";
+	$render .= "<em class='fa ". menu_ico("indicadores") ." fa-me' aria-hidden='true'></em>Indicadores";
 	$render .= "</a></li>";
 
 	$render .= '</ul>';
@@ -59,25 +59,29 @@ function render_menu(){
 function menu_ico($menu=''){
 
 	switch (strtolower($menu)) {
-		case 'produccion':
-			 return 'fa-wrench';
+		case 'registrar_cliente':
+			 return 'fa-address-book-o';
 			break;
-		case 'inventario':
-			 return 'fa-pencil-square-o';
+		case 'consultar_cliente':
+			 return 'fa-search';
 			break;	
 		
-		case 'ventas':
-			 return 'fa-line-chart';
+		case 'registrar_pedidos':
+			 return 'fa-pencil-square-o';
 			break;	
-		case 'estadisticas':
-			 return 'fa-pie-chart';
+		case 'registro_piezas':
+			 return 'fa-cogs';
 			break;	
-		case 'usuarios':
-			 return 'fa-user-circle-o';
+		case 'consultar_pedidos':
+			 return 'fa-book';
 			break;
 
-		case 'clientes':
-			 return 'fa-address-book-o';
+		case 'pedidos_atendidos':
+			 return 'fa-check';
+			break;	
+
+		case 'indicadores':
+			 return 'fa-line-chart';
 			break;
 
 		default:
