@@ -41,8 +41,8 @@ function render_menu(){
 	$render .= "</a></li>";
 
 	$render .= "<li class='nav-item'>";
-	$render .= "<a class='nav-link' href='". BASE_URL ."Piezas'>";
-	$render .= "<em class='fa ". menu_ico("pedidos_atendidos") ." fa-me' aria-hidden='true'></em>Pedidos Atendidos";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Reportes_Pedidos'>";
+	$render .= "<em class='fa ". menu_ico("reportes") ." fa-me' aria-hidden='true'></em>Reportes Pedidos";
 	$render .= "</a></li>";
 
 	$render .= "<li class='nav-item'>";
@@ -76,8 +76,8 @@ function menu_ico($menu=''){
 			 return 'fa-book';
 			break;
 
-		case 'pedidos_atendidos':
-			 return 'fa-check';
+		case 'reportes':
+			 return 'fa-print';
 			break;	
 
 		case 'indicadores':

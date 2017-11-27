@@ -28,7 +28,8 @@ class Indicadores_EstadisticosController
 							'graficos/chart.min', 
 							'graficos/Chart.bundle.min',
 							'js/Indicadores_Estadisticos',
-							'js/Indicadores_pie'];
+							'js/Indicadores_pie',
+							'js/Indicadores_line'];
 
 		$data_head = array(
 

@@ -2,7 +2,7 @@
 require 'model/ClientesModel.php';
 require 'helpers/resolve_opcion.php';
 
-class PedidosController extends ClientesModel
+class Reportes_PedidosController extends ClientesModel
 {
 	public function indexAction()
 	{	
@@ -17,7 +17,6 @@ class PedidosController extends ClientesModel
 		$data_style = [ 'css/normalize', 
 						'css/font-awesome', 
 						'bootstrap/css/bootstrap.min', 
-						'bootstrap-datepicker/css/datepicker', 
 						'data_table_style/datatables.min',
 						'css/style',
 						'css/Pedidos',
@@ -27,17 +26,20 @@ class PedidosController extends ClientesModel
 							'data_table_style/jquery-3.2.1.min',
 							'bootstrap/js/popper.min', 
 							'bootstrap/js/bootstrap.min',
-							'bootstrap-datepicker/js/bootstrap-datepicker',
 							'data_table_style/datatables.min',
+							'data_table_style/Buttons/js/buttons.flash.min',
+							'data_table_style/pdfmake/pdfmake.min',	
+							'data_table_style/pdfmake/vfs_fonts',	
+
 							'js/header',
-							'js/Pedidos'];
+							'js/Reportes_Pedidos'];
 
 		$data_head = array(
 				'data_style' => $data_style,
 				'data_javascript' => $data_javascript
 		);
 
-		return new View('Pedidos_Atendidos', [
+		return new View('Reportes_Pedidos', [
 									  'titulo' => 'Pedidos', 
 									  'data_head' => $data_head
 									]);

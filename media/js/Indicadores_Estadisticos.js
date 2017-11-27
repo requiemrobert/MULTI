@@ -15,52 +15,24 @@ function getMes(fecha){
 
 function renderGraficas(dataResponse){
 
-	var EneroRetrovisor	  = 0;
-	var FebreroRetrovisor = 0;
-	var MarzoRetrovisor   = 0; 
-	var AbrilRetrovisor   = 0;
-	var MayoRetrovisor    = 0;
-	var JunioRetrovisor   = 0;
-	var JulioRetrovisor   = 0;
-	var AgostoRetrovisor  = 0;
+	var AgostoRetrovisor     = 0;
 	var SeptiembreRetrovisor = 0;
 	var OctubreRetrovisor    = 0; 
 	var NoviembreRetrovisor  =0;
 	var DiciembreRetrovisor  = 0;
 
-	var EneroParachoque	  = 0;
-	var FebreroParachoque = 0;
-	var MarzoParachoque   = 0; 
-	var AbrilParachoque   = 0;
-	var MayoParachoque    = 0;
-	var JunioParachoque   = 0;
-	var JulioParachoque   = 0;
-	var AgostoParachoque  = 0;
+	var AgostoParachoque     = 0;
 	var SeptiembreParachoque = 0;
 	var OctubreParachoque    = 0; 
-	var NoviembreParachoque  =0;
+	var NoviembreParachoque  = 0;
 	var DiciembreParachoque  = 0;
 
-	var EneroCapo	= 0;
-	var FebreroCapo = 0;
-	var MarzoCapo   = 0; 
-	var AbrilCapo   = 0;
-	var MayoCapo    = 0;
-	var JunioCapo   = 0;
-	var JulioCapo   = 0;
 	var AgostoCapo  = 0;
 	var SeptiembreCapo = 0;
 	var OctubreCapo    = 0; 
 	var NoviembreCapo  = 0;
 	var DiciembreCapo  = 0;
 	
-	var EneroTecho	= 0;
-	var FebreroTecho = 0;
-	var MarzoTecho   = 0; 
-	var AbrilTecho   = 0;
-	var MayoTecho    = 0;
-	var JunioTecho   = 0;
-	var JulioTecho   = 0;
 	var AgostoTecho  = 0;
 	var SeptiembreTecho = 0;
 	var OctubreTecho    = 0; 
@@ -68,6 +40,12 @@ function renderGraficas(dataResponse){
 	var DiciembreTecho  = 0;
 
 	for (var i = 0; i < dataResponse.length; i++) {
+
+		if (getMes(dataResponse[i].mes_pedido) == 'Agosto' && dataResponse[i].tipo_pieza == "Retrovisor" ) {
+
+			SeptiembreRetrovisor = dataResponse[i].cantidad;
+
+		}
 
 		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Retrovisor" ) {
 
@@ -91,6 +69,15 @@ function renderGraficas(dataResponse){
 			DiciembreRetrovisor = dataResponse[i].cantidad;
 
 		}
+
+		//FIN RETROVISOR
+
+		if (getMes(dataResponse[i].mes_pedido) == 'Agosto' && dataResponse[i].tipo_pieza == "Parachoques" ) {
+
+			SeptiembreParachoque = dataResponse[i].cantidad;
+
+		}
+
 		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Parachoques" ) {
 
 			SeptiembreParachoque = dataResponse[i].cantidad;
@@ -110,6 +97,14 @@ function renderGraficas(dataResponse){
 		if (getMes(dataResponse[i].mes_pedido) == 'Diciembre' && dataResponse[i].tipo_pieza == "Parachoques" ) {
 
 			DiciembreParachoque = dataResponse[i].cantidad;
+
+		}
+
+		// FIN PARA CHOQUES
+
+		if (getMes(dataResponse[i].mes_pedido) == 'Agosto' && dataResponse[i].tipo_pieza == "Capo" ) {
+
+			SeptiembreCapo = dataResponse[i].cantidad;
 
 		}
 
@@ -134,8 +129,15 @@ function renderGraficas(dataResponse){
 			DiciembreCapo = dataResponse[i].cantidad;
 
 		}
+		// FIN CAPO
 
-		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Capo" ) {
+		if (getMes(dataResponse[i].mes_pedido) == 'Agosto' && dataResponse[i].tipo_pieza == "Techo" ) {
+
+			SeptiembreTecho = dataResponse[i].cantidad;
+
+		}
+
+		if (getMes(dataResponse[i].mes_pedido) == 'Septiembre' && dataResponse[i].tipo_pieza == "Techo" ) {
 
 			SeptiembreTecho = dataResponse[i].cantidad;
 
@@ -160,38 +162,36 @@ function renderGraficas(dataResponse){
 			
 	}
 
-	datasetsRetrovisor(dataResponse);
-
 	var DataPiezasSemanal = {
 
-			labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+			labels : ["Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
 			datasets : [
 				{
 					label: "Retrovisor",
 					backgroundColor: window.chartColors.red,
                     borderColor: window.chartColors.red,
-					data : [EneroRetrovisor, FebreroRetrovisor, MarzoRetrovisor, AbrilRetrovisor, MayoRetrovisor, JunioRetrovisor, JulioRetrovisor, AgostoRetrovisor, SeptiembreRetrovisor, OctubreRetrovisor, NoviembreRetrovisor, DiciembreRetrovisor]
+					data : [ AgostoRetrovisor, SeptiembreRetrovisor, OctubreRetrovisor, NoviembreRetrovisor, DiciembreRetrovisor]
 				}
 				,
 				{
 					label: "Parachoques",
 					backgroundColor: window.chartColors.orange,
                     borderColor: window.chartColors.orange,
-					data : [EneroParachoque, FebreroParachoque, MarzoParachoque, AbrilParachoque, MayoParachoque, JunioParachoque, JulioParachoque, AgostoParachoque, SeptiembreParachoque, OctubreParachoque, NoviembreParachoque, DiciembreParachoque]
+					data : [ AgostoParachoque, SeptiembreParachoque, OctubreParachoque, NoviembreParachoque, DiciembreParachoque]
 				}
 				,
 				{
 					label: "Capo",
 					backgroundColor: window.chartColors.green,
                     borderColor: window.chartColors.green,
-					data : [EneroCapo, FebreroCapo, MarzoCapo, AbrilCapo, MayoCapo, JunioCapo, JulioCapo, AgostoCapo, SeptiembreCapo, OctubreCapo, NoviembreCapo, DiciembreCapo]
+					data : [ AgostoCapo, SeptiembreCapo, OctubreCapo, NoviembreCapo, DiciembreCapo]
 				}
 				,
 				{
 					label: "Techo",
 					backgroundColor: window.chartColors.purple,
                     borderColor: window.chartColors.purple,
-					data : [EneroTecho, FebreroTecho, MarzoTecho, AbrilTecho, MayoTecho, JunioTecho, JulioTecho, AgostoTecho, SeptiembreTecho, OctubreTecho, NoviembreTecho, DiciembreTecho]
+					data : [ AgostoTecho, SeptiembreTecho, OctubreTecho, NoviembreTecho, DiciembreTecho]
 				}
 			]
 
@@ -204,23 +204,6 @@ function renderGraficas(dataResponse){
 		data: DataPiezasSemanal
 	});
 
-}
-
-function datasetsRetrovisor(dataJson){
-   var arrayCantidad = [];	
-   var arrayMes = [];	
-   //getMes(fecha)
-   for (var i in dataJson) {
-      
-      if (dataJson[i].tipo_pieza == "Retrovisor") {
-      	  arrayCantidad.push(dataJson[i].cantidad);
-      	  arrayMes.push(getMes(dataJson[i].mes_pedido));
-      }	
-   }
-
-   console.log(arrayMes);
-
-   return arrayCantidad;
 }
 
 function dataPiezasProducidas(baseURL_Action){
@@ -245,16 +228,6 @@ function dataPiezasProducidas(baseURL_Action){
 
 }//END dataPiezasProducidas
 
-function datasetsChartBar(dataResponse){
-
-   var arrayDatasets = [];	
-
-   for (var i in dataResponse) {
-      arrayDatasets.push(dataResponse[i].cantidad);
-   }
-   return arrayDatasets
-
-}
 
 /************** COLORES ****************/
 window.chartColors = {
