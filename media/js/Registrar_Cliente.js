@@ -18,7 +18,6 @@ $(function(){
 
 });////END MAIM
 
-
 function registrarCliente(dataJson){
 
     $login = $.ajax({

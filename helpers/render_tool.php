@@ -25,7 +25,30 @@ function render_menu(){
 	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Consultar Clientes";
 	$render .= "</a></li>";
 
+	$render .= "<li class='nav-item'>";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Registrar_Pedidos'>";
+	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Registrar Pedidos";
+	$render .= "</a></li>";
 
+	$render .= "<li class='nav-item'>";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Pedidos'>";
+	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Pedidos";
+	$render .= "</a></li>";
+
+	$render .= "<li class='nav-item'>";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Registro_Piezas'>";
+	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Registro Piezas";
+	$render .= "</a></li>";
+
+	$render .= "<li class='nav-item'>";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Piezas'>";
+	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Pedidos Atendidos";
+	$render .= "</a></li>";
+
+	$render .= "<li class='nav-item'>";
+	$render .= "<a class='nav-link' href='". BASE_URL ."Piezas'>";
+	$render .= "<em class='fa ". menu_ico("consultar_cliente") ." fa-me' aria-hidden='true'></em>Reportes Indicadores";
+	$render .= "</a></li>";
 
 	$render .= '</ul>';
 

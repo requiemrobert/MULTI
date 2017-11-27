@@ -630,3 +630,17 @@ input[type=checkbox]:checked + label {
     justify-content: center;
     align-items: center;
  }
+
+.modal-lg {
+    max-width: 55% !important;
+}
+
+.col-xl-2{
+    -ms-flex: 0 0 15.666667% !important;
+    flex: 0 0 15.666667% !important;
+    max-width: 15.666667% !important;
+}
+
+.offset-xl-2 {
+    margin-left: 15.666667% !important;
+}

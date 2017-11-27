@@ -25,7 +25,9 @@ class Registrar_PedidosController extends ClientesModel
 							'bootstrap/js/popper.min', 
 							'bootstrap/js/bootstrap.min',
 							'bootstrap-datepicker/js/bootstrap-datepicker',
+							'js/header',
 							'js/Registrar_Pedidos'];
+
 
 		$data_head = array(
 				'data_style' => $data_style,
@@ -38,10 +40,21 @@ class Registrar_PedidosController extends ClientesModel
 									]);
 	}
 
-	public static function registrarAction(){
+
+	public static function buscar_ClienteAction(){
 
 		$data = json_decode(file_get_contents("php://input"));
-		$strJson = json_encode([ 'rc' => 'registrar_cliente', 'data' => $data]);
+		
+		$strJson = json_encode([ 'rc' => 'buscar_Cliente', 'data' => $data]);
+		
+		return getWS( $strJson , BASE_URL_WS );//Call WS return JSON
+
+	}
+
+	public static function registrar_pedidoAction(){
+
+		$data = json_decode(file_get_contents("php://input"));
+		$strJson = json_encode([ 'rc' => 'registrar_pedido', 'data' => $data]);
 		
 		return getWS( $strJson , BASE_URL_WS );//Call WS return JSON
 

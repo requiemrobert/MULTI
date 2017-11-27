@@ -1,0 +1,24 @@
+.container {
+
+    max-width: 100% !important;
+    width: 100%;
+    padding-right: 0; 
+    padding-left: 0; 
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.cont-btn-table{
+
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.cont-btn-table button .fa{
+
+	font-size: 1.7em;
+}
+

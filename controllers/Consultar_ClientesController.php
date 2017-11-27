@@ -18,16 +18,16 @@ class Consultar_ClientesController extends ClientesModel
 						'css/font-awesome', 
 						'bootstrap/css/bootstrap.min', 
 						'bootstrap-datepicker/css/datepicker', 
-						'css/style'];
+						'data_table_style/datatables.min',
+						'css/style',
+						'css/data-table-per'];
 
 		$data_javascript = [
-							/*'js/jquery-1.11.3.min',*/
-							'data_table_export/jquery-3.2.1.min',
+							'data_table_style/jquery-3.2.1.min',
 							'bootstrap/js/popper.min', 
 							'bootstrap/js/bootstrap.min',
 							'bootstrap-datepicker/js/bootstrap-datepicker',
-							'data_table_export/datatables.min',
-							'data_table_export/Buttons/js/buttons.flash.min',
+							'data_table_style/datatables.min',
 							'js/header',
 							'js/Consultar_Clientes'];
 
@@ -42,11 +42,9 @@ class Consultar_ClientesController extends ClientesModel
 									]);
 	}
 
-	public static function consultar_ClientesAction(){
+	public static function listar_ClientesAction(){
 
-		$data = json_decode(file_get_contents("php://input"));
-
-		$strJson = json_encode([ 'rc' => 'consultar_Clientes', 'data' => $data]);
+		$strJson = json_encode([ 'rc' => 'listar_Clientes']);
 		
 		return getWS( $strJson , BASE_URL_WS );//Call WS return JSON
 
